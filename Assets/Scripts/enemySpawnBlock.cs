@@ -2,21 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class changeColor : MonoBehaviour
+public class enemySpawnBlock : MonoBehaviour
 {
-    public Material[] material;
-    Renderer render;
+    public GameObject objectToAppear;
     public float range = 1;
-    AudioSource audioSource;
-    public AudioClip coin;
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();
-        render = GetComponent<Renderer>();
-        render.enabled = true;
-        render.sharedMaterial = material[0];
-    }
 
     private void Update()
     {
@@ -28,16 +17,9 @@ public class changeColor : MonoBehaviour
         {
             if (hit.collider.tag == "Player")
             {
-                render.sharedMaterial = material[1];
-                PlaySound();
+                objectToAppear.gameObject.SetActive(true);
             }
         }
-    }
 
-    void PlaySound()
-    {
-        audioSource.PlayOneShot(coin, 0.2f);
     }
-
-    
 }

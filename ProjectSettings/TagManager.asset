@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - event
   - Enemy
+  - Block
   layers:
   - Default
   - TransparentFX

@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     float jumpForce =10f;
     float horizontalInput;
     bool isOnGround = true;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
             isOnGround = false;
             audioSource.PlayOneShot(jump, 0.5f);
         }
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -40,6 +42,7 @@ public class PlayerController : MonoBehaviour
        {
             capCollider.enabled = false;
             rb.AddForce(Vector3.up * 20, ForceMode.Impulse);
+            rb.constraints = RigidbodyConstraints.FreezePositionX;
             StartCoroutine(StopGoingUp());
             GameObject.Find("Music").GetComponent<AudioSource>().enabled = false;
             audioSource.PlayOneShot(death);
