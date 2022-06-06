@@ -11,7 +11,6 @@ public class destroyObject : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gObject);
-            Destroy(gameObject);
         }
     }
 }

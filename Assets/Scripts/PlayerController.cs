@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour
 {
     public Rigidbody rb;
     CapsuleCollider capCollider;
+    AudioSource audioSource;
+    public AudioClip jump;
+    public AudioClip death;
     float speed = 10f;
     float jumpForce =10f;
     float horizontalInput;
@@ -14,7 +17,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         capCollider = GetComponent<CapsuleCollider>();
-
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddRelativeForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isOnGround = false;
+            audioSource.PlayOneShot(jump, 0.5f);
         }
     }
 
@@ -37,6 +41,8 @@ public class PlayerController : MonoBehaviour
             capCollider.enabled = false;
             rb.AddForce(Vector3.up * 20, ForceMode.Impulse);
             StartCoroutine(StopGoingUp());
+            GameObject.Find("Music").GetComponent<AudioSource>().enabled = false;
+            audioSource.PlayOneShot(death);
        }
     }
 
