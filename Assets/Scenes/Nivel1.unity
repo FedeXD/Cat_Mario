@@ -11639,6 +11639,7 @@ GameObject:
   - component: {fileID: 7248042253722178240}
   - component: {fileID: 7248042253722178239}
   - component: {fileID: 7248042253722178241}
+  - component: {fileID: 7248042253722178243}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -11787,6 +11788,26 @@ MonoBehaviour:
   rb: {fileID: 0}
   jump: {fileID: 8300000, guid: 6b92bda2e114f6f49997885113ae5da1, type: 3}
   death: {fileID: 8300000, guid: 92e73cb64e0bb6e4087c2fd1bd346bc2, type: 3}
+  animator: {fileID: 7248042253722178243}
+--- !u!95 &7248042253722178243
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7248042253722178238}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5b4a18824a07df74ba24e9a7f9180d7b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!23 &7256180448910860541
 MeshRenderer:
   m_ObjectHideFlags: 0
