@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        rb.AddRelativeForce(Vector3.right * horizontalInput * speed * Time.deltaTime, ForceMode.Impulse);
+        rb.AddRelativeForce(Vector3.left * horizontalInput * speed * Time.deltaTime, ForceMode.Impulse);
         if(Input.GetKeyDown(KeyCode.W) && isOnGround)
         {
             rb.AddRelativeForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
     IEnumerator StopGoingUp()
     {
         yield return new WaitForSeconds(0.5f);
-        rb.velocity = Vector3.zero;
-        rb.angularVelocity = Vector3.zero;
+        Destroy(GetComponent<PlayerController>());
     }
 }
